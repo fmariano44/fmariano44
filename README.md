@@ -1,29 +1,99 @@
-## Bem-vindo(a) ao perfil do Filipe Basilio 😁
 
- <div>
-   <a href="https://github.com/fmariano44">
-   <img height="180em" src="https://github-readme-stats.vercel.app/api?username=fmariano44&show_icons=true&theme=dracula&include_all_commits=true&count_private=true"/>
-   <img height="180em" src="https://github-readme-stats.vercel.app/api/top-langs/?username=fmariano44&layout=compact&langs_count=6&theme=tokyonight"/>
+<h1 align="center">Filipe Basílio</h1>
 
-</div>
-<div style="display: inline_block"><br>          
-  <img align="center" alt="SF" height="50" width="60" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/salesforce/salesforce-original.svg">
-  <img align="center" alt="Js" height="30" width="40" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-plain.svg">
-  <img align="center" alt="HTML" height="30" width="40" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/html5/html5-original.svg">
-  <img align="center" alt="CSS" height="30" width="40" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/css3/css3-original.svg">
-  <img align="center" alt="CSS" height="30" width="40" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/csharp/csharp-original.svg">
-  
-</div>
- 
- <br>
- 
-  ### Para contato, segue minhas redes abaixo!
- 
-<div> 
-  
-  <a href = "mailto:filipemariano44@gmail.com"><img src="https://img.shields.io/badge/-Gmail-%23333?style=for-the-badge&logo=gmail&logoColor=white" target="_blank"></a>
-  <a href="https://www.linkedin.com/in/filipe-mariano-088861b4/" target="_blank"><img src="https://img.shields.io/badge/-LinkedIn-%230077B5?style=for-the-badge&logo=linkedin&logoColor=white" target="_blank"></a> 
- 
-  ![Snake animation](https://github.com/fmariano44/fmariano44/blob/output/github-contribution-grid-snake.svg)
+<h3 align="center">
+  Salesforce Specialist | CRM Consultant
+</h3>
 
+<p align="center">
+  Functional Analysis • Development • Automation • Solutions Architecture
+</p>
+
+<p align="center">
+  <a href="https://www.linkedin.com/in/filipe-mariano-088861b4/">
+    <img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn"/>
+  </a>
+  <a href="mailto:filipemariano44@gmail.com">
+    <img src="https://img.shields.io/badge/Gmail-333333?style=for-the-badge&logo=gmail&logoColor=white" alt="Gmail"/>
+  </a>
+</p>
+
+---
+
+## 👨‍💻 Sobre mim
+
+Profissional de tecnologia com atuação em CRM, arquitetura de soluções, desenvolvimento e automação de processos.
+
+Experiência na administração, manutenção e evolução de plataformas CRM, conectando necessidades de negócio a soluções tecnológicas eficientes, integradas e escaláveis.
+
+- ☁️ Salesforce Specialist & CRM Consultant
+- ⚙️ Automação e otimização de processos
+- 🔗 Integração entre sistemas e plataformas
+- 📊 Análise de dados e indicadores de negócio
+- 💻 Desenvolvimento de aplicações e soluções corporativas
+
+---
+
+## ☁️ CRM & Salesforce
+
+![Salesforce](https://img.shields.io/badge/Salesforce-00A1E0?style=for-the-badge&logo=salesforce&logoColor=white)
+![Apex](https://img.shields.io/badge/Apex-1798C1?style=for-the-badge&logo=salesforce&logoColor=white)
+![Salesforce Flow](https://img.shields.io/badge/Salesforce_Flow-032D60?style=for-the-badge&logo=salesforce&logoColor=white)
+![LWC](https://img.shields.io/badge/Lightning_Web_Components-00A1E0?style=for-the-badge&logo=salesforce&logoColor=white)
+![Service Cloud](https://img.shields.io/badge/Service_Cloud-0176D3?style=for-the-badge&logo=salesforce&logoColor=white)
+![Marketing Cloud](https://img.shields.io/badge/Marketing_Cloud-0176D3?style=for-the-badge&logo=salesforce&logoColor=white)
+![RD Station](https://img.shields.io/badge/RD_Station-19C1CE?style=for-the-badge&logoColor=white)
+
+---
+
+## 💻 Desenvolvimento & Tecnologias
+
+<p align="left">
+  <img src="https://skillicons.dev/icons?i=js,ts,react,nextjs,nodejs,html,css,cs,postgres,prisma,git,github,vscode&perline=7" alt="Tecnologias"/>
+</p>
+
+---
+
+## 🎯 Principais competências
+
+- Salesforce Administration
+- Functional Analysis & Requirements Gathering
+- CRM Solutions Architecture
+- Business Process Automation
+- Apex, SOQL & Lightning Web Components
+- Salesforce Flow & Approval Processes
+- REST & SOAP API Integrations
+- Reports, Dashboards & Business Intelligence
+- Stakeholder Management
+- Agile Methodologies & Jira
+
+---
+
+## 🏅 Certificações
+
+![Salesforce Associate](https://img.shields.io/badge/Salesforce_Certified-Associate-00A1E0?style=for-the-badge&logo=salesforce&logoColor=white)
+
+---
+
+## 📊 GitHub Analytics
+
+<div align="center">
+  <img width="49%" src="https://github-readme-stats.vercel.app/api?username=fmariano44&show_icons=true&theme=tokyonight&include_all_commits=true&hide_border=true" alt="GitHub Stats"/>
+  <img width="49%" src="https://github-readme-stats.vercel.app/api/top-langs/?username=fmariano44&layout=compact&langs_count=8&theme=tokyonight&hide_border=true" alt="Most Used Languages"/>
 </div>
+
+---
+
+## 🐍 Contribution Activity
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/fmariano44/fmariano44/output/github-contribution-grid-snake-dark.svg"/>
+  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/fmariano44/fmariano44/output/github-contribution-grid-snake.svg"/>
+  <img alt="GitHub contribution snake animation" src="https://raw.githubusercontent.com/fmariano44/fmariano44/output/github-contribution-grid-snake.svg"/>
+</picture>
+
+---
+
+<p align="center">
+  <i>Connecting technology, business and people through intelligent solutions.</i>
+</p>
