@@ -104,6 +104,25 @@ jobs:
               exit 0
             fi
             git commit -m "chore: update GitHub analytics cards"
+            export CARDS_COMMIT="$(git rev-parse HEAD)"
+            python3 - <<'PY'
+          import os, re
+          from pathlib import Path
+          path = Path("README.md")
+          text = path.read_text()
+          base = "https://raw.githubusercontent.com/fmariano44/fmariano44/"
+          for name, alt in [("stats", "GitHub Stats"), ("top-langs", "Most Used Languages")]:
+              pattern = r'(\bsrc=")[^"]+(" alt="' + re.escape(alt) + r'")'
+              url = base + os.environ["CARDS_COMMIT"] + "/profile/" + name + ".svg"
+              text, n = re.subn(pattern, lambda m: m[1] + url + m[2], text)
+              if n != 1:
+                  raise SystemExit("Expected exactly one README image for " + name)
+          path.write_text(text)
+          PY
+            git add README.md
+            if ! git diff --cached --quiet; then
+              git commit -m "docs: point analytics images to their immutable revision"
+            fi
             if git push origin HEAD:main; then
               exit 0
             fi
