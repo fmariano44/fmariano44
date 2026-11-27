@@ -25,9 +25,23 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v6
 
+      - name: Normalize GitHub Token
+        env:
+          RAW_TOKEN: ${{ secrets.GH_STATS_TOKEN }}
+        run: |
+          python3 - <<'PY'
+          import os, re, sys
+          token = os.environ["RAW_TOKEN"].strip()
+          if not re.fullmatch(r"(?:github_pat_|ghp_)[A-Za-z0-9_]+", token):
+              sys.exit("GH_STATS_TOKEN must contain only a valid personal access token; replace the repository secret.")
+          print("::add-mask::" + token)
+          with open(os.environ["GITHUB_ENV"], "a") as f:
+              f.write("GH_STATS_TOKEN_CLEAN=" + token + "\n")
+          PY
+
       - name: Validate GitHub Token
         env:
-          GH_TOKEN: ${{ secrets.GH_STATS_TOKEN }}
+          GH_TOKEN: ${{ env.GH_STATS_TOKEN_CLEAN }}
         run: |
           gh api user --jq '.login'
           gh api rate_limit --jq '.resources.graphql'
@@ -39,7 +53,7 @@ jobs:
           card: stats
           options: "username=fmariano44&show_icons=true&theme=tokyonight&include_all_commits=true&count_private=true&hide_border=true"
           path: profile/stats.svg
-          token: ${{ secrets.GH_STATS_TOKEN }}
+          token: ${{ env.GH_STATS_TOKEN_CLEAN }}
           fail_on_error: true
 
       - name: Generate Most Used Languages
@@ -48,7 +62,7 @@ jobs:
           card: top-langs
           options: "username=fmariano44&layout=compact&langs_count=8&theme=tokyonight&hide_border=true"
           path: profile/top-langs.svg
-          token: ${{ secrets.GH_STATS_TOKEN }}
+          token: ${{ env.GH_STATS_TOKEN_CLEAN }}
           fail_on_error: true
 
       - name: Commit and Publish Cards
