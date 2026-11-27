@@ -21,6 +21,14 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v6
 
+      - name: Validate GitHub Token
+        env:
+          GH_TOKEN: ${{ secrets.GH_STATS_TOKEN }}
+        run: |
+          gh api user --jq '.login'
+          gh api rate_limit --jq '.resources.graphql'
+          gh api graphql -f query='query { viewer { login } }'
+
       - name: Generate GitHub Stats
         uses: stats-organization/github-readme-stats-action@v2
         with:
