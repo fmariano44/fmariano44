@@ -2,6 +2,10 @@ name: Generate GitHub Analytics
 
 "on":
   workflow_dispatch: {}
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/github-stats.yml"
   schedule:
     - cron: "0 3 * * *"
 
