@@ -45,7 +45,8 @@ jobs:
         run: |
           gh api user --jq '.login'
           gh api rate_limit --jq '.resources.graphql'
-          gh api graphql -f query='query { viewer { login } }'
+          gh api graphql -f query='query { viewer { login repositories(privacy: PRIVATE, ownerAffiliations: OWNER) { totalCount } contributionsCollection { totalCommitContributions restrictedContributionsCount } } }'
+          gh api --paginate --slurp 'user/repos?affiliation=owner&visibility=all&per_page=100' --jq '[.[][]] | {public_owned: map(select(.private == false)) | length, private_owned: map(select(.private == true)) | length, private_nonfork_with_language: map(select(.private and (.fork | not) and .language != null)) | length}'
 
       - name: Generate GitHub Stats
         uses: stats-organization/github-readme-stats-action@v2
@@ -60,10 +61,27 @@ jobs:
         uses: stats-organization/github-readme-stats-action@v2
         with:
           card: top-langs
-          options: "username=fmariano44&layout=compact&langs_count=8&theme=tokyonight&hide_border=true"
+          options: "username=fmariano44&layout=compact&langs_count=8&card_width=467&theme=tokyonight&hide_border=true"
           path: profile/top-langs.svg
           token: ${{ env.GH_STATS_TOKEN_CLEAN }}
           fail_on_error: true
+
+      - name: Match SVG canvas dimensions
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          import re
+          files = [Path("profile/stats.svg"), Path("profile/top-langs.svg")]
+          svgs = [p.read_text() for p in files]
+          dims = [tuple(map(int, re.search(r'viewBox="0 0 (\d+) (\d+)"', s).groups())) for s in svgs]
+          width = max(w for w,h in dims)
+          height = max(h for w,h in dims)
+          for p,s,(w,h) in zip(files,svgs,dims):
+              s = re.sub(r'(<svg\s+width=")\d+("\s+height=")\d+("\s+viewBox="0 0 )\d+ \d+(")', lambda m: f"{m[1]}{width}{m[2]}{height}{m[3]}{width} {height}{m[4]}", s, count=1)
+              # Extend the card background to the common canvas; preserve text scale.
+              s = re.sub(r'(<rect\b[^>]*?data-testid="card-bg"[^>]*?>)', lambda m: re.sub(r'height="[^"]+"', f'height="{height-1}"', re.sub(r'width="[^"]+"', f'width="{width-1}"', m[0])), s, count=1)
+              p.write_text(s)
+          PY
 
       - name: Commit and Publish Cards
         run: |
