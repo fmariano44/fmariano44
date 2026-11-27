@@ -1,11 +1,9 @@
-
 name: Generate GitHub Analytics
 
-on:
+"on":
+  workflow_dispatch: {}
   schedule:
     - cron: "0 3 * * *"
-
-  workflow_dispatch:
 
 permissions:
   contents: write
@@ -27,7 +25,7 @@ jobs:
         uses: stats-organization/github-readme-stats-action@v2
         with:
           card: stats
-          options: username=fmariano44&show_icons=true&theme=tokyonight&include_all_commits=true&count_private=true&hide_border=true
+          options: "username=fmariano44&show_icons=true&theme=tokyonight&include_all_commits=true&count_private=true&hide_border=true"
           path: profile/stats.svg
           token: ${{ secrets.GH_STATS_TOKEN }}
           fail_on_error: true
@@ -36,7 +34,7 @@ jobs:
         uses: stats-organization/github-readme-stats-action@v2
         with:
           card: top-langs
-          options: username=fmariano44&layout=compact&langs_count=8&theme=tokyonight&hide_border=true
+          options: "username=fmariano44&layout=compact&langs_count=8&theme=tokyonight&hide_border=true"
           path: profile/top-langs.svg
           token: ${{ secrets.GH_STATS_TOKEN }}
           fail_on_error: true
@@ -54,4 +52,3 @@ jobs:
             git commit -m "chore: update GitHub analytics cards"
             git push
           fi
-
