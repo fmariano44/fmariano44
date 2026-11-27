@@ -24,6 +24,8 @@ jobs:
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
 
       - name: Normalize GitHub Token
         env:
@@ -46,7 +48,7 @@ jobs:
           gh api user --jq '.login'
           gh api rate_limit --jq '.resources.graphql'
           gh api graphql -f query='query { viewer { login repositories(privacy: PRIVATE, ownerAffiliations: OWNER) { totalCount } contributionsCollection { totalCommitContributions restrictedContributionsCount } } }'
-          gh api --paginate --slurp 'user/repos?affiliation=owner&visibility=all&per_page=100' --jq '[.[][]] | {public_owned: map(select(.private == false)) | length, private_owned: map(select(.private == true)) | length, private_nonfork_with_language: map(select(.private and (.fork | not) and .language != null)) | length}'
+          gh api --paginate 'user/repos?affiliation=owner&visibility=all&per_page=100' | jq -s 'add | {public_owned: (map(select(.private == false)) | length), private_owned: (map(select(.private == true)) | length)}' || echo 'REST repository diagnostic unavailable; continuing with GraphQL results.'
 
       - name: Generate GitHub Stats
         uses: stats-organization/github-readme-stats-action@v2
@@ -94,5 +96,6 @@ jobs:
             echo "No changes to commit."
           else
             git commit -m "chore: update GitHub analytics cards"
+            git pull --rebase origin main
             git push
           fi
