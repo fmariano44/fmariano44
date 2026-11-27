@@ -78,9 +78,11 @@ Experiência na administração, manutenção e evolução de plataformas CRM, c
 ## 📊 GitHub Analytics
 
 <div align="center">
-  <img width="49%" src="https://github-readme-stats.vercel.app/api?username=fmariano44&show_icons=true&theme=tokyonight&include_all_commits=true&hide_border=true" alt="GitHub Stats"/>
-  <img width="49%" src="https://github-readme-stats.vercel.app/api/top-langs/?username=fmariano44&layout=compact&langs_count=8&theme=tokyonight&hide_border=true" alt="Most Used Languages"/>
+  <img height="160" align="top" src="./profile/stats.svg" alt="GitHub Stats"/>
+  <img height="160" align="top" src="./profile/top-langs.svg" alt="Most Used Languages"/>
 </div>
+
+<p align="center"><sub>Updated daily • Language statistics reflect repositories accessible to the analytics workflow.</sub></p>
 
 ---
 
